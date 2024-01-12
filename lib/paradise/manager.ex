@@ -4,9 +4,6 @@ defmodule Paradise.Manager do
   """
   use ECSx.Manager
 
-  alias Paradise.Components
-  alias Paradise.Systems
-
   def setup do
     # Seed persistent components only for the first server start
     # (This will not be run on subsequent app restarts)
@@ -22,43 +19,49 @@ defmodule Paradise.Manager do
   # Declare all valid Component types
   def components do
     [
-      Components.Amount,
-      Components.AstronautSpawned,
-      Components.Collectable,
-      Components.Common,
-      Components.Currency,
-      Components.Description,
-      Components.Energy,
-      Components.EnergyCapacity,
-      Components.EnergyCooldown,
-      Components.Epic,
-      Components.Harvestable,
-      Components.ImageFile,
-      Components.Inventory,
-      Components.InventoryItem,
-      Components.Level,
-      Components.Metal,
-      Components.Mineral,
-      Components.Rare,
-      Components.SlotsAvailable,
-      Components.SlotsCapacity,
-      Components.StackSize,
-      Components.Substance,
-      Components.XPosition,
-      Components.XVelocity,
-      Components.YPosition,
-      Components.YVelocity
+      Paradise.Components.Playable,
+      Paradise.Components.Backpack,
+      Paradise.Components.Collectable,
+      Paradise.Components.Currency,
+      Paradise.Components.Description,
+      Paradise.Components.Element,
+      Paradise.Components.EnergyCapacity,
+      Paradise.Components.EnergyCooldown,
+      Paradise.Components.EnergyLevel,
+      Paradise.Components.Harvestable,
+      Paradise.Components.ImageFile,
+      Paradise.Components.Inventory,
+      Paradise.Components.InventoryItem,
+      Paradise.Components.Location,
+      Paradise.Components.Matter,
+      Paradise.Components.OxygenCapacity,
+      Paradise.Components.OxygenCooldown,
+      Paradise.Components.OxygenCooldown,
+      Paradise.Components.OxygenLevel,
+      Paradise.Components.PlayerLevel,
+      Paradise.Components.Quantity,
+      Paradise.Components.Rarity,
+      Paradise.Components.SlotsAvailable,
+      Paradise.Components.SlotsCapacity,
+      Paradise.Components.Spawned,
+      Paradise.Components.StackSize,
+      Paradise.Components.XPosition,
+      Paradise.Components.XVelocity,
+      Paradise.Components.YPosition,
+      Paradise.Components.YVelocity
     ]
   end
 
   # Declare all Systems to run
   def systems do
     [
-      Systems.ClientEventHandler,
-      Systems.ConsumeEnergy,
-      Systems.MoveEntity,
-      Systems.CooldownExpiration,
-      Systems.RestoreEnergy
+      Paradise.Systems.ClientEventHandler,
+      Paradise.Systems.ConsumeOxygen,
+      Paradise.Systems.ConsumeEnergy,
+      Paradise.Systems.MoveEntity,
+      Paradise.Systems.CooldownExpiration,
+      Paradise.Systems.RestoreOxygen,
+      Paradise.Systems.RestoreEnergy
     ]
   end
 end

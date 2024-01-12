@@ -1,6 +1,6 @@
 defmodule Paradise.Components.Harvestable do
   @moduledoc """
-  Documentation for Harvestable components.
+  Indicates if a component can be harvested.
   """
   use ECSx.Tag
 end

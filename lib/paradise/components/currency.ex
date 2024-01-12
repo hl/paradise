@@ -1,6 +1,6 @@
 defmodule Paradise.Components.Currency do
   @moduledoc """
-  Documentation for Currency components.
+  Indicates if a component is considered a currency.
   """
   use ECSx.Tag
 end

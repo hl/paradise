@@ -14,17 +14,17 @@ defmodule Paradise.Systems.ClientEventHandler do
 
   defp process_one({entity, :spawn_astronaut}) do
     Components.Description.add(entity, "Astronaut #" <> Enum.random(1..10_000), persist: true)
-    Components.Level.add(entity, 1, persist: true)
+    Components.PlayerLevel.add(entity, 1, persist: true)
     Components.EnergyCapacity.add(entity, 100, persist: true)
     Components.XPosition.add(entity, Enum.random(1..100), persist: true)
     Components.YPosition.add(entity, Enum.random(1..100), persist: true)
     Components.ImageFile.add(entity, "astronaut.svg", persist: true)
 
-    Components.Energy.add(entity, 100)
+    Components.EnergyLevel.add(entity, 100)
     Components.XVelocity.add(entity, 0)
     Components.YVelocity.add(entity, 0)
 
-    Components.AstronautSpawned.add(entity)
+    Components.Spawned.add(entity)
   end
 
   # Note Y movement will use screen positio (increasing Y goes down)

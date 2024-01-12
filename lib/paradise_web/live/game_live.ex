@@ -16,7 +16,7 @@ defmodule ParadiseWeb.GameLive do
       |> assign_loading_state()
 
     if connected?(socket) do
-      unless Components.AstronautSpawned.exists?(astronaut.id) do
+      unless Components.Spawned.exists?(astronaut.id) do
         ECSx.ClientEvents.add(astronaut.id, :spawn_astronaut)
       end
 
@@ -64,7 +64,7 @@ defmodule ParadiseWeb.GameLive do
   end
 
   defp wait_for_spawn(astronaut_entity) do
-    if Components.AstronautSpawned.exists?(astronaut_entity) do
+    if Components.Spawned.exists?(astronaut_entity) do
       :ok
     else
       Process.sleep(10)
@@ -76,7 +76,7 @@ defmodule ParadiseWeb.GameLive do
     name = Components.Description.get(socket.assigns.astronaut_entity)
     x = Components.XPosition.get(socket.assigns.astronaut_entity)
     y = Components.YPosition.get(socket.assigns.astronaut_entity)
-    energy = Components.Energy.get(socket.assigns.astronaut_entity)
+    energy = Components.EnergyLevel.get(socket.assigns.astronaut_entity)
     image = Components.ImageFile.get(socket.assigns.astronaut_entity)
 
     assign(socket,

@@ -52,7 +52,8 @@ defmodule Paradise.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"},
-      {:ecsx, "~> 0.5"}
+      {:ecsx, "~> 0.5"},
+      {:ecsx_live_dashboard, "~> 0.1"}
     ]
   end
 

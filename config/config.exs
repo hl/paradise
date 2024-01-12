@@ -62,12 +62,11 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :ecsx,
+  manager: Paradise.Manager,
   tick_rate: 20,
-  manager: Paradise.Manager
-
-config :ecsx,
-  tick_rate: 20,
-  manager: Paradise.Manager
+  persist_interval: :timer.seconds(15),
+  persistence_adapter: ECSx.Persistence.FileAdapter,
+  persistence_file_location: "data/components.persistence"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
